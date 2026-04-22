@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: packaged
-  version: 0.5.0
+  version: 0.6.1
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/packaged-${{ version }}.tar.gz
-  sha256: 6c90d81373ff376b74b3b06ec6f4b1fa77191345b37385429c4f737d1b751fbf
+  sha256: 5a12ad2f48106d25fdb25fe5c7f31930ebb605ad30f7f0f6fb9f3dcdc7cda174
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:
@@ -29,7 +29,8 @@ requirements:
     - python >=${{ python_min }}
     - yen >=0.4.2
     - tomli >=1.1.0
-
+    - pycify >=1.2.0
+    - yaspin >=2.5.0
 tests:
   - python:
       imports:
